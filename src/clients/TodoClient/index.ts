@@ -9,7 +9,6 @@ export class TodoClient implements TodoClientInterface {
         .filter((key) => !isNaN(Number(key)))
         .map((key) => {
           const todo = JSON.parse(localStorage.getItem(key) as string) as Todo
-          todo.createdAt = new Date(todo.createdAt)
           todo.updatedAt = new Date(todo.updatedAt)
           return todo
         })
@@ -42,11 +41,7 @@ export class TodoClient implements TodoClientInterface {
     const date = new Date()
     return {
       id: date.getTime(),
-      title: todo.title,
-      description: todo.description,
-      status: todo.status,
-      createdAt: date,
-      updatedAt: date
+      title: todo.title
     } as Todo
   }
 }

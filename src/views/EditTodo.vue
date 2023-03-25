@@ -8,19 +8,6 @@
       <label for="title">タイトル</label>
       <input type="text" id="title" v-model="data.title" />
     </div>
-    <div>
-      <label for="description">説明</label>
-      <textarea id="description" v-model="data.description" />
-    </div>
-    <div>
-      <label for="status">ステータス</label>
-      <select id="status" v-model="data.status">
-        <option value="waiting">waiting</option>
-        <option value="working">working</option>
-        <option value="completed">completed</option>
-        <option value="pending">pending</option>
-      </select>
-    </div>
     <button @click="onSubmit">更新する</button>
   </form>
 </template>
@@ -47,19 +34,15 @@ export default defineComponent({
 
       const data = reactive<Params>({
 
-        title: todo.title,
-        description: todo.description,
-        status: todo.status
+        title: todo.title
       })
 
       const onSubmit = () => {
-        const { title, description, status } = data
+        const { title } = data
         todoStore.updateTodo(id, {
 
           ...todo,
-          title,
-          description,
-          status
+          title
         })
         router.push('/')
       }

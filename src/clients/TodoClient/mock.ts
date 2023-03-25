@@ -4,27 +4,15 @@ import { TodoClientInterface } from './types'
 const mockTodo: Todo[] = [
   {
     id: 1,
-    title: 'todo1',
-    description: '1つ目',
-    status: 'waiting',
-    createdAt: new Date('2020-12-01'),
-    updatedAt: new Date('2020-12-01')
+    title: 'todo1'
   },
   {
     id: 2,
-    title: 'todo2',
-    description: '2つ目',
-    status: 'waiting',
-    createdAt: new Date('2020-12-02'),
-    updatedAt: new Date('2020-12-02')
+    title: 'todo2'
   },
   {
     id: 3,
-    title: 'todo3',
-    description: '3つ目',
-    status: 'working',
-    createdAt: new Date('2020-12-03'),
-    updatedAt: new Date('2020-12-04')
+    title: 'todo3'
   }
 ]
 
@@ -57,9 +45,6 @@ export class MockTodoClient implements TodoClientInterface {
     return {
       id: date.getTime(),
       title: todo.title,
-      description: todo.description,
-      status: todo.status,
-      createdAt: date,
       updatedAt: date
     } as Todo
   }
