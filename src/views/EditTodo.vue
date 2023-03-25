@@ -1,29 +1,29 @@
 <template>
-    <h2>TODOを編集する</h2>
-    <div v-if="error"> // ①
-      ID：{{ $route.params.id }}のTODOが見つかりませんでした。
+  <h2>TODOを編集する</h2>
+  <div v-if="error">
+    // ① ID：{{ $route.params.id }}のTODOが見つかりませんでした。
+  </div>
+  <form v-else @submit.prevent="onSubmit">
+    <div>
+      <label for="title">タイトル</label>
+      <input type="text" id="title" v-model="data.title" />
     </div>
-    <form v-else @submit.prevent="onSubmit">
-      <div>
-        <label for="title">タイトル</label>
-        <input type="text" id="title" v-model="data.title" />
-      </div>
-      <div>
-        <label for="description">説明</label>
-        <textarea id="description" v-model="data.description" />
-      </div>
-      <div>
-        <label for="status">ステータス</label>
-        <select id="status" v-model="data.status">
-          <option value="waiting">waiting</option>
-          <option value="working">working</option>
-          <option value="completed">completed</option>
-          <option value="pending">pending</option>
-        </select>
-      </div>
-      <button @click="onSubmit">更新する</button>
-    </form>
-  </template>
+    <div>
+      <label for="description">説明</label>
+      <textarea id="description" v-model="data.description" />
+    </div>
+    <div>
+      <label for="status">ステータス</label>
+      <select id="status" v-model="data.status">
+        <option value="waiting">waiting</option>
+        <option value="working">working</option>
+        <option value="completed">completed</option>
+        <option value="pending">pending</option>
+      </select>
+    </div>
+    <button @click="onSubmit">更新する</button>
+  </form>
+</template>
 
 <script lang="ts">
 import { defineComponent, inject, reactive } from 'vue'
@@ -45,7 +45,8 @@ export default defineComponent({
     try {
       const todo = todoStore.getTodo(id) // ③
 
-      const data = reactive<Params>({ // ④
+      const data = reactive<Params>({
+        // ④
         title: todo.title,
         description: todo.description,
         status: todo.status
@@ -53,7 +54,8 @@ export default defineComponent({
 
       const onSubmit = () => {
         const { title, description, status } = data
-        todoStore.updateTodo(id, { // ⑤
+        todoStore.updateTodo(id, {
+          // ⑤
           ...todo,
           title,
           description,
