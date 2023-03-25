@@ -1,6 +1,6 @@
 <template>
   <h2>TODO一覧</h2>
-  <p>タイトルをクリックして、内容を編集することができます。</p>
+  <p>作成したTODOのタイトルをクリックして、内容を編集することができます。</p>
   <Suspense>
     <AsyncTodos />
   </Suspense>
