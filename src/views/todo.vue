@@ -1,4 +1,11 @@
-<template>TODO一覧です。</template>
+<template>
+  <h2>TODO一覧</h2>
+  <ul>
+    <li v-for="todo in todoStore.state.todos" :key="todo.id">
+      {{ todo.title }}
+    </li>
+  </ul>
+</template>
 
 <script lang="ts">
 import { defineComponent, inject } from 'vue'
