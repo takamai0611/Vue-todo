@@ -1,50 +1,19 @@
 <template>
   <h2>TODO一覧</h2>
   <p>タイトルをクリックして、内容を編集することができます。</p>
-  <ul>
-    <todo-item
-      v-for="todo in todoStore.state.todos"
-      :key="todo.id"
-      :todo="todo"
-      @click-title="clickTitle"
-      @click-delete="clickDelete"
-    >
-    </todo-item>
-  </ul>
+  <Suspense>
+    <AsyncTodos />
+  </Suspense>
   <router-link to="/new">新規作成</router-link>
 </template>
 
 <script lang="ts">
-import { defineComponent, inject } from 'vue'
-import { useRouter } from 'vue-router'
-import TodoItem from '@/components/TodoItem.vue'
-import { todoKey } from '@/store/todo'
+import { defineComponent } from 'vue'
+import AsyncTodos from '@/components/AsyncTodos.vue'
 
 export default defineComponent({
   components: {
-    TodoItem
-  },
-  async setup () { // setup関数をasync関数に変更
-    const todoStore = inject(todoKey)
-    if (!todoStore) {
-      throw new Error('todoStore is not provided')
-    }
-
-    const router = useRouter()
-
-    const clickDelete = (id: number) => {
-      todoStore.deleteTodo(id)
-    }
-
-    const clickTitle = (id: number) => {
-      router.push(`/edit/${id}`)
-    }
-
-    return {
-      todoStore,
-      clickDelete,
-      clickTitle
-    }
+    AsyncTodos
   }
 })
 </script>
