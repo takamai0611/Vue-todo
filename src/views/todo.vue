@@ -24,7 +24,7 @@ export default defineComponent({
   components: {
     TodoItem
   },
-  setup () {
+  async setup () { // setup関数をasync関数に変更
     const todoStore = inject(todoKey)
     if (!todoStore) {
       throw new Error('todoStore is not provided')
