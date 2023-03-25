@@ -9,7 +9,6 @@ export class TodoClient implements TodoClientInterface {
         .filter((key) => !isNaN(Number(key)))
         .map((key) => {
           const todo = JSON.parse(localStorage.getItem(key) as string) as Todo
-          todo.updatedAt = new Date(todo.updatedAt)
           return todo
         })
     )
@@ -32,7 +31,6 @@ export class TodoClient implements TodoClientInterface {
 
   update (id: number, todo: Todo) {
     localStorage.removeItem(String(id))
-    todo.updatedAt = new Date()
     localStorage.setItem(String(id), JSON.stringify(todo))
     return Promise.resolve(todo)
   }

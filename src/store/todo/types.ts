@@ -5,7 +5,6 @@ export type Status = 'waiting' | 'working' | 'completed' | 'pending'
 export interface Todo {
   id: number
   title: string
-  updatedAt: Date
 }
 
 export interface TodoState {

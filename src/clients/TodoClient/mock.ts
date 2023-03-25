@@ -36,7 +36,6 @@ export class MockTodoClient implements TodoClientInterface {
   }
 
   update (id: number, todo: Todo) {
-    todo.updatedAt = new Date()
     return Promise.resolve(todo)
   }
 
