@@ -9,7 +9,7 @@ const mockTodo: Todo[] = [
     description: '1つ目',
     status: 'waiting',
     createdAt: new Date('2020-12-01'),
-    updatedAt: new Date('2020-12-01'),
+    updatedAt: new Date('2020-12-01')
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ const mockTodo: Todo[] = [
     description: '2つ目',
     status: 'waiting',
     createdAt: new Date('2020-12-02'),
-    updatedAt: new Date('2020-12-02'),
+    updatedAt: new Date('2020-12-02')
   },
   {
     id: 3,
@@ -25,27 +25,27 @@ const mockTodo: Todo[] = [
     description: '3つ目',
     status: 'working',
     createdAt: new Date('2020-12-03'),
-    updatedAt: new Date('2020-12-04'),
-  },
+    updatedAt: new Date('2020-12-04')
+  }
 ]
 
 // ②
 const state = reactive<TodoState>({
-  todos: mockTodo,
+  todos: mockTodo
 })
 
 // ③
 const intitializeTodo = (todo: Params) => {
-    const date = new Date()
-    return {
-      id: date.getTime(),
-      title: todo.title,
-      description: todo.description,
-      status: todo.status,
-      createdAt: date,
-      updatedAt: date,
-    } as Todo
-  }
+  const date = new Date()
+  return {
+    id: date.getTime(),
+    title: todo.title,
+    description: todo.description,
+    status: todo.status,
+    createdAt: date,
+    updatedAt: date
+  } as Todo
+}
 
 // ④
 const getTodo = (id: number) => {
@@ -80,7 +80,7 @@ const todoStore: TodoStore = {
   getTodo,
   addTodo,
   updateTodo,
-  deleteTodo,
+  deleteTodo
 }
 
 export default todoStore
