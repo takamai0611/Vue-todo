@@ -2,7 +2,12 @@
   <h2>TODO一覧</h2>
   <p>作成したTODOのタイトルをクリックして、内容を編集することができます。</p>
   <Suspense>
-    <AsyncTodos />
+    <template #default>
+      <AsyncTodos />
+    </template>
+    <template #fallback>
+      <div>Loading...</div>
+    </template>
   </Suspense>
   <router-link to="/new">新規作成</router-link>
 </template>
