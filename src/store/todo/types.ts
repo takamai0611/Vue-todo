@@ -24,5 +24,4 @@ export interface TodoStore {
   getTodo: (id: number) => any
   addTodo: (todo: Params) => any
   updateTodo: (id: number, todo: Todo) => any
-  deleteTodo: (id: number) => any
 }

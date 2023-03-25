@@ -8,6 +8,4 @@ export interface TodoClientInterface {
   create(params: Params): Promise<Todo>
 
   update(id: number, todo: Todo): Promise<Todo>
-
-  delete(id: number): Promise<void>
 }

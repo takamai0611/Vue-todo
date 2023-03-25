@@ -52,11 +52,6 @@ export class MockTodoClient implements TodoClientInterface {
     return Promise.resolve(todo)
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  delete (id: number) {
-    return Promise.resolve()
-  }
-
   intitializeTodo (todo: Params) {
     const date = new Date()
     return {

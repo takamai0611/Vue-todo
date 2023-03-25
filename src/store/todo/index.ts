@@ -38,19 +38,13 @@ const updateTodo = async (id: number, todo: Todo) => {
   state.todos[index] = result
 }
 
-const deleteTodo = (id: number) => {
-  TodoRepository.delete(id)
-  state.todos = state.todos.filter((todo) => todo.id !== id)
-}
-
 const todoStore: TodoStore = {
   state: readonly(state),
   fetchTodos,
   fetchTodo,
   getTodo,
   addTodo,
-  updateTodo,
-  deleteTodo
+  updateTodo
 }
 
 export default todoStore

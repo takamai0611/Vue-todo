@@ -38,11 +38,6 @@ export class TodoClient implements TodoClientInterface {
     return Promise.resolve(todo)
   }
 
-  delete (id: number) {
-    localStorage.removeItem(String(id))
-    return Promise.resolve()
-  }
-
   intitializeTodo (todo: Params) {
     const date = new Date()
     return {

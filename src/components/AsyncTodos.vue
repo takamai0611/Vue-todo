@@ -5,7 +5,6 @@
         :key="todo.id"
         :todo="todo"
         @click-title="clickTitle"
-        @click-delete="clickDelete"
       >
       </todo-item>
     </ul>
@@ -27,9 +26,6 @@ export default defineComponent({
       throw new Error('todoStore is not provided')
     }
     const router = useRouter()
-    const clickDelete = (id: number) => {
-      todoStore.deleteTodo(id)
-    }
     const clickTitle = (id: number) => {
       router.push(`/edit/${id}`)
     }
@@ -38,7 +34,6 @@ export default defineComponent({
 
     return {
       todoStore,
-      clickDelete,
       clickTitle
     }
   }
