@@ -1,5 +1,5 @@
 <template>
-    <router-view></router-view>
+    TODO一覧です。
   </template>
 
 <script lang="ts">
