@@ -1,4 +1,4 @@
-import { Todo } from '@/store/todo/types'
+import { Todo, Params } from '@/store/todo/types'
 import { TodoClientInterface } from './types'
 
 export class TodoClient implements TodoClientInterface {
