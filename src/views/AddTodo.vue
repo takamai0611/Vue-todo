@@ -1,5 +1,5 @@
 <template>
-    <h2>TODOを作成する</h2>
+    <h2>TODOを追加する(新規作成)</h2>
     <form @submit.prevent="onSubmit"> // ①
       <div>
         <label for="title">タイトル</label>
