@@ -1,7 +1,11 @@
 <template>
   <h2>TODO一覧</h2>
   <p>作成したTODOのタイトルをクリックして、内容を編集することができます。</p>
-  <Suspense>
+
+  <div v-if="error">
+    {{ error.message }}
+  </div>
+  <Suspense v-else>
     <template #default>
       <AsyncTodos />
     </template>
