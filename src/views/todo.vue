@@ -1,5 +1,6 @@
 <template>
   <h2>TODO一覧</h2>
+  <p>タイトルをクリックして、内容を編集することができます。</p>
   <ul>
     <todo-item
       v-for="todo in todoStore.state.todos"
