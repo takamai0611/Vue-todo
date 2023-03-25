@@ -1,5 +1,5 @@
 <template>
-  <h2>TODO一覧</h2>
+  <h2>テキストを消去する</h2>
   <ul>
     <todo-item
       v-for="todo in todoStore.state.todos"
