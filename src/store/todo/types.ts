@@ -11,7 +11,7 @@ export interface TodoState {
   todos: Todo[]
 }
 
-export type Params = Pick<Todo, 'title' | 'description' | 'status'>
+export type Params = Pick<Todo, 'title' |>
 
 export interface TodoStore {
   state: DeepReadonly<TodoState>
