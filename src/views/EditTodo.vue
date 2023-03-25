@@ -1,7 +1,7 @@
 <template>
   <h2>TODOを編集する</h2>
   <div v-if="error">
-    // ① ID：{{ $route.params.id }}のTODOが見つかりませんでした。
+    ID：{{ $route.params.id }}のTODOが見つかりませんでした。
   </div>
   <form v-else @submit.prevent="onSubmit">
     <div>
@@ -39,14 +39,14 @@ export default defineComponent({
     }
 
     const router = useRouter()
-    const route = useRoute() // ②
+    const route = useRoute()
 
-    const id = Number(route.params.id) // ②
+    const id = Number(route.params.id)
     try {
-      const todo = todoStore.getTodo(id) // ③
+      const todo = todoStore.getTodo(id)
 
       const data = reactive<Params>({
-        // ④
+
         title: todo.title,
         description: todo.description,
         status: todo.status
@@ -55,7 +55,7 @@ export default defineComponent({
       const onSubmit = () => {
         const { title, description, status } = data
         todoStore.updateTodo(id, {
-          // ⑤
+
           ...todo,
           title,
           description,
