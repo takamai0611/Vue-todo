@@ -2,7 +2,7 @@
   <div class="card">
     <div>
       <span class="title" @click="clickTitle">{{ todo.title }}</span>
-      <span class="status" :class="todo.status">{{ todo.status }}</span> // ①
+      <span class="status" :class="todo.status">{{ todo.status }}</span>
     </div>
     <div class="body">作成日：{{ formatDate }}</div>
     <hr />
@@ -13,42 +13,40 @@
 </template>
 
 <script lang="ts">
-import { Todo } from "@/store/todo/types";
-import { computed, defineComponent, PropType } from "vue";
+import { Todo } from '@/store/todo/types'
+import { computed, defineComponent, PropType } from 'vue'
 
 export default defineComponent({
   props: {
-    // ②
+
     todo: {
       type: Object as PropType<Todo>,
-      required: true,
-    },
+      required: true
+    }
   },
-  emits: ["clickDelete", "clickTitle"], // ③
-  setup(props, { emit }) {
-    // ④
+  emits: ['clickDelete', 'clickTitle'],
+  setup (props, { emit }) {
     const clickDelete = () => {
-      emit("clickDelete", props.todo.id);
-    };
+      emit('clickDelete', props.todo.id)
+    }
 
     const clickTitle = () => {
-      emit("clickTitle", props.todo.id);
-    };
+      emit('clickTitle', props.todo.id)
+    }
 
     const formatDate = computed(() => {
-      // ⑤
       return `${props.todo.createdAt.getFullYear()}/${
         props.todo.createdAt.getMonth() + 1
-      }/${props.todo.createdAt.getDate()}`;
-    });
+      }/${props.todo.createdAt.getDate()}`
+    })
 
     return {
       clickDelete,
       clickTitle,
-      formatDate,
-    };
-  },
-});
+      formatDate
+    }
+  }
+})
 </script>
 
 <style scoped>
