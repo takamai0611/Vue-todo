@@ -15,8 +15,6 @@ const intitializeTodo = (todo: Params) => {
   return {
     id: date.getTime(),
     title: todo.title,
-    description: todo.description,
-    status: todo.status,
     createdAt: date,
     updatedAt: date
   } as Todo

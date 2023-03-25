@@ -24,17 +24,13 @@ export default defineComponent({
     const router = useRouter() // ④
 
     const data = reactive<Params>({ // ⑤
-      title: '',
-      description: '',
-      status: 'waiting'
+      title: ''
     })
 
     const onSubmit = () => { // ⑥
-      const { title, description, status } = data
+      const { title } = data
       todoStore.addTodo({
-        title,
-        description,
-        status
+        title
       })
       router.push('/')
     }
