@@ -1,5 +1,5 @@
 import { InjectionKey, reactive, readonly } from 'vue'
-import { Todo, TodoState, TodoStore } from '@/store/todo/types'
+import { Todo, TodoState, TodoStore, Params } from '@/store/todo/types'
 
 // ①
 const mockTodo: Todo[] = [
