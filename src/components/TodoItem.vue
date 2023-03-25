@@ -32,16 +32,8 @@ export default defineComponent({
       emit('clickTitle', props.todo.id)
     }
 
-    const formatDate = computed(() => {
-      return `${props.todo.createdAt.getFullYear()}/${
-        props.todo.createdAt.getMonth() + 1
-      }/${props.todo.createdAt.getDate()}`
-    })
-
     return {
-      clickDelete,
-      clickTitle,
-      formatDate
+      clickDelete
     }
   }
 })
