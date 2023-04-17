@@ -1,27 +1,28 @@
 <template>
   <h2>TODO一覧</h2>
-  <ul>
-    <li v-for="todo in todoStore.state.todos" :key="todo.id">
-      {{ todo.title }}
-    </li>
-  </ul>
+  <p>作成したTODOのタイトルをクリックして、内容を編集することができます。</p>
+
+  <div v-if="error">
+    {{ error.message }}
+  </div>
+  <Suspense v-else>
+    <template #default>
+      <AsyncTodos />
+    </template>
+    <template #fallback>
+      <div>Loading...</div>
+    </template>
+  </Suspense>
   <router-link to="/new">新規作成</router-link>
 </template>
 
 <script lang="ts">
-import { defineComponent, inject } from 'vue'
-import { todoKey } from '@/store/todo'
+import { defineComponent } from 'vue'
+import AsyncTodos from '@/components/AsyncTodos.vue'
 
 export default defineComponent({
-  setup () {
-    const todoStore = inject(todoKey)
-    if (!todoStore) {
-      throw new Error('todoStore is not provided')
-    }
-
-    return {
-      todoStore
-    }
+  components: {
+    AsyncTodos
   }
 })
 </script>
