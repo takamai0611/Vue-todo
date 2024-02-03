@@ -1,24 +1,24 @@
 <template>
-    <h2>TODOを作成する</h2>
-    <form @submit.prevent="onSubmit"> // ①
+    <h2>Vue + Ts でTODOを作成する</h2>
+    <form @submit.prevent="onSubmit">
       <div>
         <label for="title">タイトル</label>
-        <input type="text" id="title" v-model="data.title" /> // ②
+        <input type="text" id="title" v-model="data.title" />
       </div>
       <div>
         <label for="description">説明</label>
-        <textarea id="description" v-model="data.description" /> // ②
+        <textarea id="description" v-model="data.description" />
       </div>
       <div>
         <label for="status">ステータス</label>
-        <select id="status" v-model="data.status"> // ②
+        <select id="status" v-model="data.status">
           <option value="waiting">waiting</option>
           <option value="working">working</option>
           <option value="completed">completed</option>
           <option value="pending">pending</option>
         </select>
       </div>
-      <button @click="onSubmit">作成する</button> // ①
+      <button @click="onSubmit">作成する</button>
     </form>
   </template>
 
